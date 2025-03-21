@@ -1,11 +1,11 @@
-
+import createComponent from "./components/createComponent"
 
 function App() {
   
 
   return (
     <>
-      <>
+      
   {/* Хедър с меню */}
   <header className="flex justify-between items-center bg-blue-900 text-white p-4 shadow-lg">
     <div className="text-2xl font-bold">CarShop.bg</div>
@@ -89,11 +89,14 @@ function App() {
       </div>
     </div>
   </section>
-  {/* Footer */}
+ 
+    <createComponent/>
+
+  
   <footer className="bg-gray-900 text-white py-6 text-center">
     <p>© 2025 CarShop.bg - Всички права запазени</p>
   </footer>
-</>
+
 
     </>
   )
