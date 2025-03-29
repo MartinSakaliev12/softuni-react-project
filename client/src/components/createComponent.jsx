@@ -1,4 +1,4 @@
-function createComponent(){
+function CreateComponent(){
     return(<>
         {/* Форма за създаване на обява */}
   <section className="bg-white p-8 mt-8 mx-auto max-w-4xl shadow-lg rounded-xl">
@@ -20,6 +20,11 @@ function createComponent(){
         <input
           type="number"
           placeholder="Година"
+          className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
+        />
+        <input
+          type="text"
+          placeholder="Мощност"
           className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
         />
         <select className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500">
@@ -52,4 +57,4 @@ function createComponent(){
     </>)
 }
 
-export default createComponent
+export default CreateComponent
