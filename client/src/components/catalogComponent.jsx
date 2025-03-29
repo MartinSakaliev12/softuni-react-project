@@ -1,4 +1,5 @@
 import "./css/catalog.css"
+import SearchComponent from "./searchComponent"
 
 export default function Catalog(){
     return(<>
@@ -9,37 +10,7 @@ export default function Catalog(){
   <title>Търсене на автомобили</title>
   <link rel="stylesheet" href="styles.css" />
   <div className="container">
-    <section className="search-section">
-      <h2>Търсене на автомобили</h2>
-      <div className="search-grid">
-        <select>
-          <option value="">Марка</option>
-          <option value="Toyota">Toyota</option>
-          <option value="Honda">Honda</option>
-          <option value="Ford">Ford</option>
-          <option value="BMW">BMW</option>
-        </select>
-        <select>
-          <option value="">Модел</option>
-          <option value="Corolla">Corolla</option>
-          <option value="Civic">Civic</option>
-          <option value="Mustang">Mustang</option>
-          <option value="M3">M3</option>
-        </select>
-        <select>
-          <option value="">Година</option>
-          <option value={2024}>2024</option>
-          <option value={2023}>2023</option>
-          <option value={2022}>2022</option>
-        </select>
-        <select>
-          <option value="">Гориво</option>
-          <option value="Diesel">Дизел</option>
-          <option value="Petrol">Бензин</option>
-        </select>
-      </div>
-      <button className="search-button">Търсене</button>
-    </section>
+    {/* <SearchComponent/> */}
     <section className="cars-grid">
       <div className="car-card">
         <img src="https://g1-bg.cars.bg/2025-03-09_2/67cddf656a696dcacb09c004o.jpg" alt="Toyota Corolla" />

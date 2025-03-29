@@ -1,0 +1,87 @@
+/* Общи стилове */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+  }
+  
+  /* Хедър секция */
+  .header {
+    background-color: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+  }
+  .header h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  .header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  .header a {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: white;
+    color: #2563eb;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  .header a:hover {
+    background-color: #e2e8f0;
+  }
+  
+  /* Популярни автомобили */
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0;
+  }
+  .container h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 30px;
+    padding: 0 20px;
+  }
+  
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .card {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  .card h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .card p {
+    color: #555;
+  }
+  

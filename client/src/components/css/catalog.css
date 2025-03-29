@@ -44,7 +44,7 @@ body {
 
 .search-button {
     width: 100%;
-    background-color: #2563eb;
+    background-color: #4077ed;
     color: white;
     padding: 12px;
     border: none;
@@ -55,7 +55,7 @@ body {
 }
 
 .search-button:hover {
-    background-color: #1e40af;
+    background-color: #4077ed;
 }
 
 /* Карти за автомобили */
@@ -102,7 +102,7 @@ body {
 }
 
 .car-card .price {
-    color: #2563eb;
+    color: #4077ed;
     font-size: 22px;
     margin-top: 10px;
 }
