@@ -8,16 +8,20 @@ export default function Header(){
   <nav>
     <ul>
       <li>
-        <a href="/">Начало</a>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <a href="#">Моите обяви</a>
+        <Link to="/login">Login</Link>
       </li>
       <li>
-        <a href="/catalog/create">Добави обява</a>
+        <Link to="/register">Register</Link>
       </li>
       <li>
-        <a href="#">Изход</a>
+        <Link to="/catalog/create">Add car</Link>
+      </li>
+      
+      <li>
+        <Link to="#">Logout</Link>
       </li>
     </ul>
   </nav>
