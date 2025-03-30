@@ -13,7 +13,7 @@ export default function Catalog(){
     {/* <SearchComponent/> */}
     <section className="cars-grid">
       <div className="car-card">
-        <img src="https://g1-bg.cars.bg/2025-03-09_2/67cddf656a696dcacb09c004o.jpg" alt="Toyota Corolla" />
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
         <div className="info">
           <h3>Toyota Corolla</h3>
           <p>2023 - Бензин</p>

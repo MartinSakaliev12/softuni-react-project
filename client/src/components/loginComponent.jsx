@@ -30,9 +30,9 @@ export default function Login (){
       
   })
     return(<>
-        <div className="w-full max-w-lg p-6 bg-white shadow-md rounded-2xl mx-auto mt-10">
-  <h2 className="text-3xl font-bold text-center text-gray-900">Welcome Back</h2>
-  <form className="space-y-4" action={loginAction} >
+        <div className="w-full max-w-lg p-6 bg-black shadow-md rounded-2xl mx-auto mt-10">
+      <h2 className="text-3xl font-bold text-center text-white">Welcome Back</h2>
+      <form className="space-y-4" action={loginAction} >
     {
       error?
       <label className="text-red-600 font-semibold">
@@ -42,7 +42,7 @@ export default function Login (){
 
     }
     <div>
-      <label className="block text-gray-700">Email</label>
+      <label className="block text-gray-400">Email</label>
       <input
         type="email"
         placeholder="Enter your email"
@@ -52,7 +52,7 @@ export default function Login (){
       />
     </div>
     <div>
-      <label className="block text-gray-700">Password</label>
+      <label className="block text-gray-400">Password</label>
       <input
         type="password"
         placeholder="Enter your password"

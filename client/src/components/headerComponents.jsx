@@ -8,8 +8,8 @@ export default function Header(){
 
     return (<>
         <header className="navbar">
-  <div className="logo">CarShop.bg</div>
-  <nav>
+    <div className="logo">CarShop.bg</div>
+    <nav>
     <ul>
       <li>
         <Link to="/">Home</Link>
