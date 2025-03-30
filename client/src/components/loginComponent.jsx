@@ -1,9 +1,20 @@
-import { useActionState } from "react"
+import { useActionState, useContext, useState } from "react"
+import useLogin from "../api/authApi"
+import { UserContext } from "../context/authContext"
 
 export default function Login (){
+    const {login} = useLogin()
+    const {loginHandler} = useContext(UserContext)
+    const [error, setError] = useState(null)
 
-    const loginSubmitHandler = (previousData, formData) =>{
-        console.log(Object.fromEntries(formData))
+    const loginSubmitHandler = async(previousData, formData) =>{
+        const loginData = Object.fromEntries(formData)
+        const authData = await login(loginData)
+        
+        if(authData.code==403){
+          setError("Invalid email or password!")
+        }
+        loginHandler(authData)
     }
 
     const [value, loginAction, isPending] = useActionState(loginSubmitHandler,{
@@ -13,6 +24,14 @@ export default function Login (){
         <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg rounded-xl justify-center min-h-screen mx-auto mt-10">
   <h2 className="text-3xl font-bold text-center text-gray-900">Welcome Back</h2>
   <form className="space-y-4" action={loginAction} >
+    {
+      error?
+      <label class="text-red-600 font-semibold">
+        {error}
+      </label>
+      :<></>
+
+    }
     <div>
       <label className="block text-gray-700">Email</label>
       <input
