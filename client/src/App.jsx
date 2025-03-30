@@ -7,6 +7,8 @@ import HomePage from "./components/homeCatalog"
 import Login from "./components/loginComponent"
 import { useState } from "react"
 import { UserContext } from "./context/authContext"
+import Register from "./components/registerComponent"
+import Logout from "./components/logoutComponent"
 
 function App() {
   const [authData, setauthData] = useState({})
@@ -15,11 +17,14 @@ function App() {
     setauthData(user)
   }
 
+  const logoutHandler = () => {
+    setauthData({})
+  }
 
   return (
     
   <>    
-    <UserContext.Provider value={{...authData,loginHandler}}>
+    <UserContext.Provider value={{...authData,loginHandler,logoutHandler}}>
     <Header/>
     
     <Routes>
@@ -28,7 +33,8 @@ function App() {
       <Route path='/catalog' element={<Catalog/>}/>
       <Route path='/catalog/create' element={<CreateComponent/>}/>
       <Route path='/login' element={<Login/>}/>
-
+      <Route path='/register' element={<Register/>}/>
+      <Route path='/logout' element={<Logout/>}/>
     </Routes>
    
     </UserContext.Provider>

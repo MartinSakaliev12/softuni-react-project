@@ -1,11 +1,14 @@
 import { useActionState, useContext, useState } from "react"
 import useLogin from "../api/authApi"
 import { UserContext } from "../context/authContext"
+import { Link, useNavigate } from "react-router"
 
 export default function Login (){
     const {login} = useLogin()
     const {loginHandler} = useContext(UserContext)
+    const [prevEmail, setPrevEmail] = useState("")
     const [error, setError] = useState(null)
+    const navigate = useNavigate()
 
     const loginSubmitHandler = async(previousData, formData) =>{
         const loginData = Object.fromEntries(formData)
@@ -13,20 +16,26 @@ export default function Login (){
         
         if(authData.code==403){
           setError("Invalid email or password!")
+          setPrevEmail(loginData.email)
+          return;
         }
+
         loginHandler(authData)
+        navigate("/")
     }
 
-    const [value, loginAction, isPending] = useActionState(loginSubmitHandler,{
-
-    })
+    const [value, loginAction, isPending] = useActionState(loginSubmitHandler, {
+      email: "",
+      password: "",
+      
+  })
     return(<>
-        <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg rounded-xl justify-center min-h-screen mx-auto mt-10">
+        <div className="w-full max-w-lg p-6 bg-white shadow-md rounded-2xl mx-auto mt-10">
   <h2 className="text-3xl font-bold text-center text-gray-900">Welcome Back</h2>
   <form className="space-y-4" action={loginAction} >
     {
       error?
-      <label class="text-red-600 font-semibold">
+      <label className="text-red-600 font-semibold">
         {error}
       </label>
       :<></>
@@ -37,6 +46,7 @@ export default function Login (){
       <input
         type="email"
         placeholder="Enter your email"
+        defaultValue={prevEmail}
         name="email"
         className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
       />
@@ -68,9 +78,9 @@ export default function Login (){
   </form>
   <p className="text-center text-gray-600">
     Don't have an account?{" "}
-    <a href="#" className="text-blue-500 hover:underline">
+    <Link to="/register" className="text-blue-500 hover:underline">
       Sign up
-    </a>
+    </Link>
   </p>
 </div>
 
