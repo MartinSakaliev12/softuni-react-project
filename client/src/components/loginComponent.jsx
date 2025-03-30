@@ -30,7 +30,7 @@ export default function Login (){
       
   })
     return(<>
-        <div className="w-full max-w-lg p-6 bg-black shadow-md rounded-2xl mx-auto mt-10">
+        <div className="w-full max-w-lg p-6 bg-gray-800 shadow-lg shadow-black rounded-2xl mx-auto mt-10">
       <h2 className="text-3xl font-bold text-center text-white">Welcome Back</h2>
       <form className="space-y-4" action={loginAction} >
     {
@@ -60,15 +60,7 @@ export default function Login (){
         className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
       />
     </div>
-    <div className="flex justify-between items-center">
-      <label className="flex items-center space-x-2">
-        <input type="checkbox" className="w-4 h-4" />
-        <span className="text-gray-600">Remember me</span>
-      </label>
-      <a href="#" className="text-blue-500 hover:underline">
-        Forgot password?
-      </a>
-    </div>
+    
     <button
       type="submit"
       className="w-full py-3 mt-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
@@ -76,9 +68,9 @@ export default function Login (){
       Login
     </button>
   </form>
-  <p className="text-center text-gray-600">
+  <p className="text-center text-gray-400 mt-4">
     Don't have an account?{" "}
-    <Link to="/register" className="text-blue-500 hover:underline">
+    <Link to="/register" className="text-blue-500 hover:underline transition">
       Sign up
     </Link>
   </p>
