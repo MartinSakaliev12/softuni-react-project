@@ -14,7 +14,199 @@ export default function Catalog(){
     <section className="cars-grid">
       <div className="car-card">
         <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
-        <div className="info">
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
+          <h3>Toyota Corolla</h3>
+          <p>2023 - Бензин</p>
+          <p className="price">$20,000</p>
+          <p>Много добро състояние, 50,000 км, 1 собственик.</p>
+        </div>
+      </div><div className="car-card">
+        <img src="Screenshot 2023-03-22 213431.png" alt="Toyota Corolla" />
+          <div className="info">
           <h3>Toyota Corolla</h3>
           <p>2023 - Бензин</p>
           <p className="price">$20,000</p>

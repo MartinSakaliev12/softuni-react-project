@@ -17,12 +17,12 @@ async function request(method, url, data, options ={}){
     
     
     const response = await fetch(url,options)
-    console.log(response);
+    
     if(response.status === 204){
         return response;
     }
     const result = response.json();
-    
+    console.log(response);
 
     return result;
 }

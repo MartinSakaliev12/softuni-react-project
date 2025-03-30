@@ -1,18 +1,50 @@
-import { useActionState } from "react"
+import { useActionState, useState } from "react"
+import { useCreate } from "../api/carsApi"
 
 function CreateComponent() {
+  const [imageUrl, setImageUrl] = useState([1])
+  const {createCar} = useCreate()
 
-  const createSubmitHandler =  (prevData, formData) => {
-    const data = Object.fromEntries(formData)
-    
-    console.log(data.imageFile)
+
+  const addImageUrl = () => {
+    setImageUrl((prev) => [...prev, prev.length + 1])
   }
 
-  const[values, createActionm, isPending] = useActionState(createSubmitHandler,{})
+  const createSubmitHandler = (prevData, formData) => {
+    const data = Object.fromEntries(formData)
+    const imageUrls =[];
+    imageUrl.map((url) => {
+      const currnet = formData.get(`imageUrl ${url}`)
+      imageUrls.push(currnet)
+    })
+    const brand = formData.get("brand")
+    const model = formData.get("model")
+    const year = formData.get("year")
+    const power = formData.get("power")
+    const fuel = formData.get("fuel")
+    const price = formData.get("price")
+    const mileage = formData.get("mileage")
+    const description = formData.get("description")
+    const newData = {
+      brand,
+      model,
+      year,
+      power,
+      fuel,
+      price,
+      mileage,
+      description,
+      imageUrls
+    }
+    const result = createCar(newData)
+    console.log(result);
+  }
+
+  const [values, createActionm, isPending] = useActionState(createSubmitHandler, {})
   return (<>
     {/* Форма за създаване на обява */}
-    <section className="bg-white p-8 mt-8 mx-auto max-w-4xl shadow-lg rounded-xl">
-      <h2 className="text-3xl font-semibold text-center mb-6">
+    <section className="bg-grey-800 p-8 mt-8 mx-auto max-w-4xl shadow-lg shadow-black rounded-xl">
+      <h2 className="text-3xl text-white font-semibold text-center mb-6">
         Създай нова обява
       </h2>
       <form action={createActionm}>
@@ -65,8 +97,24 @@ function CreateComponent() {
           defaultValue={""}
           name="description"
         />
-        <input type="file" className="mt-4" name = "imageFile"/>
-        <button className="w-full bg-blue-600 text-white py-3 rounded-lg mt-4 hover:bg-blue-700">
+        {imageUrl.map((url) => <input
+          type="text"
+          placeholder="Добави снимка (URL)"
+          className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
+          name={`imageUrl ${url}`}
+          key = {url}
+        />)}
+
+        <button
+          className="bg-blue-500 text-white py-2 px-6 rounded-full hover:bg-blue-600 transition duration-300"
+          type="button"
+          onClick={addImageUrl}
+        >+</button>
+
+        <button
+          className="w-full bg-blue-600 text-white py-3 rounded-lg mt-4 hover:bg-blue-700"
+          type="submit"
+        >
           Публикувай
         </button>
       </form>

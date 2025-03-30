@@ -47,19 +47,19 @@ export default function Register() {
     })
     return (
         <>
-            <div className="w-full max-w-lg p-6 bg-white shadow-md rounded-2xl mx-auto mt-10">
-                <h2 className="text-3xl font-bold text-center text-gray-900">Welcome</h2>
+            <div className="w-full max-w-lg p-6 bg-gray-800 shadow-lg shadow-black rounded-2xl mx-auto mt-10">
+                <h2 className="text-3xl font-bold text-center text-white">Welcome</h2>
                 <form className="space-y-4" action={registerAction}>
                     {
                         error ?
-                            <label className="text-red-600 font-semibold">
+                            <label className="text-red-400 font-semibold">
                                 {error}
                             </label>
                             : <></>
 
                     }
                     <div>
-                        <label className="block text-gray-700">Email</label>
+                        <label className="block text-gray-400">Email</label>
                         <input
                             type="email"
                             placeholder="Enter your email"
@@ -69,7 +69,7 @@ export default function Register() {
                         />
                     </div>
                     <div>
-                        <label className="block text-gray-700">Password</label>
+                        <label className="block text-gray-400">Password</label>
                         <input
                             type="password"
                             placeholder="Enter your password"
@@ -78,7 +78,7 @@ export default function Register() {
                         />
                     </div>
                     <div>
-                        <label className="block text-gray-700">Confirm password</label>
+                        <label className="block text-gray-400">Confirm password</label>
                         <input
                             type="password"
                             placeholder="Confirm your password"
@@ -94,7 +94,7 @@ export default function Register() {
                         Register
                     </button>
                 </form>
-                <p className="text-center text-gray-600">
+                <p className="text-center text-gray-400">
                     You have an account?{" "}
                     <Link to="/login" className="text-blue-500 hover:underline">
                         Sign in

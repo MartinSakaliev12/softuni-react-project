@@ -1339,7 +1339,45 @@
     	sessions: {
     	}
     };
-    var seedData = {};
+    var seedData = {
+        cars:[
+            {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "brand": "Acer",
+                "model": "audi",
+                "year": "123123",
+                "power": "12313",
+                "fuel": "Petrol",
+                "price": "131231",
+                "mileage": "123123",
+                "description": "awdasdawd",
+                "imageUrls": [
+                    "a",
+                    "v"
+                ],
+                "_createdOn": 1743354937016,
+                "_id": "3500d1bf-b751-47bc-afd8-73abad5c1506"
+            },
+            {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "brand": "audi",
+                "model": "a4",
+                "year": "2000",
+                "power": "110",
+                "fuel": "Diesel",
+                "price": "2000",
+                "mileage": "99000",
+                "description": "the best or nothing",
+                "imageUrls": [
+                    "https://www.auto-data.net/images/f120/Audi-A4-Avant-B5-Typ-8D-facelift-1999.jpg",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLdva29HMPxzBq_-GOEiUBnq2vId8DRdcnLw&s"
+                ],
+                "_createdOn": 1743355036011,
+                "_id": "2a1bdbcf-aa87-4466-99e5-7a55ffc2ffa1"
+            }
+        ]
+
+    };
     var rules$1 = {
     	users: {
     		".create": false,
