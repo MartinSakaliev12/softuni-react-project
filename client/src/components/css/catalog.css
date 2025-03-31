@@ -100,6 +100,8 @@ body {
 .car-card p {
     margin-top: 6px;
     color: #ffffff;
+    
+    height: 40px;
 }
 
 .car-card .price {

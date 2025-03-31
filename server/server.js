@@ -1343,40 +1343,46 @@
         cars:[
             {
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                "brand": "Acer",
-                "model": "audi",
-                "year": "123123",
-                "power": "12313",
-                "fuel": "Petrol",
-                "price": "131231",
-                "mileage": "123123",
-                "description": "awdasdawd",
-                "imageUrls": [
-                    "a",
-                    "v"
-                ],
-                "_createdOn": 1743354937016,
-                "_id": "3500d1bf-b751-47bc-afd8-73abad5c1506"
-            },
-            {
-                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                "brand": "audi",
-                "model": "a4",
+                "brand": "vw",
+                "model": "golf",
                 "year": "2000",
                 "power": "110",
                 "fuel": "Diesel",
-                "price": "2000",
-                "mileage": "99000",
-                "description": "the best or nothing",
+                "price": "2400",
+                "mileage": "20000",
+                "description": "Няма нито една забележка по салона, двигателя и ходовата част! В салона няма никъде скъсано, протрито, изгорено, или износено! Всички системи са в изправност! Работещ климатроник ! Внос на много други автомобили. Съдействие при регистрация, изваждане на транзитни номера и гражданска отговорност. КРЕДИТ ЗА АВТОМОБИЛ БЕЗ СКРИТИ ТАКСИ И КОМИСИОННИ С О- НУЛА-ПЪРВОНАЧАЛНА ВНОСКА, НА РАВНИ МЕС. ВНОСКИ. САМО С ЛИЧНА КАРТА. ОДОБРЕНИЕ ДО 2 ЧАСА.\nЗа контакти:",
                 "imageUrls": [
-                    "https://www.auto-data.net/images/f120/Audi-A4-Avant-B5-Typ-8D-facelift-1999.jpg",
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLdva29HMPxzBq_-GOEiUBnq2vId8DRdcnLw&s"
+                    "https://g1-bg.cars.bg/2025-03-04_1/67c6b16e410fc1346404d8b2o.jpg",
+                    "https://g1-bg.cars.bg/2025-03-04_1/67c6b17aae86cae6ef035e02o.jpg"
                 ],
-                "_createdOn": 1743355036011,
-                "_id": "2a1bdbcf-aa87-4466-99e5-7a55ffc2ffa1"
+                "_createdOn": 1743410470487,
+                
+            },
+            {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "brand": "mercedes",
+                "model": "s500",
+                "year": "2010",
+                "power": "407",
+                "fuel": "Petrol",
+                "price": "20000",
+                "mileage": "10000",
+                "description": "Гарантиран произход. 100% Реални километри без никакви забележки уникално запазен. Перфектно техническо състояние и отличен външен вид ! Напълно обслужен. С регистрация. Предлагаме преглед в избран от Вас сервиз. Автокъща „Ауто Инвест“ предлага само избрани и проверени автомобили !",
+                "imageUrls": [
+                    "https://g1-bg.cars.bg/2025-03-25_1/67e273313bc84cd4680f7032o.jpg",
+                    "https://g1-bg.cars.bg/2025-03-25_1/67e273336d6bc8c5e5063e64o.jpg",
+                    "https://g1-bg.cars.bg/2025-03-25_1/67e27335d885578f6e0d4b75o.jpg",
+                    "https://g1-bg.cars.bg/2025-03-25_1/67e27337cbd3c45fa308d022o.jpg",
+                    "https://g1-bg.cars.bg/2025-03-25_1/67e27339a91b31f81d022284o.jpg",
+                    "https://g1-bg.cars.bg/2025-03-25_1/67e2733a7d3a2076140ac192o.jpg",
+                    "https://g1-bg.cars.bg/2025-03-25_1/67e2733ccbd3c45fa308d023o.jpg",
+                    "https://g1-bg.cars.bg/2025-03-25_1/67e2733ccbd3c45fa308d023o.jpg",
+                    "https://g1-bg.cars.bg/2025-03-25_1/67e2733ccbd3c45fa308d023o.jpg"
+                ],
+                "_createdOn": 1743413365783,
+                "_id": "fab5c2ad-f34e-45a1-a6f0-f7ff35b830cd"
             }
         ]
-
     };
     var rules$1 = {
     	users: {

@@ -1,10 +1,11 @@
 import { useActionState, useState } from "react"
 import { useCreate } from "../api/carsApi"
+import { useNavigate } from "react-router"
 
 function CreateComponent() {
   const [imageUrl, setImageUrl] = useState([1])
   const {createCar} = useCreate()
-
+  const navigate = useNavigate();
 
   const addImageUrl = () => {
     setImageUrl((prev) => [...prev, prev.length + 1])
@@ -37,6 +38,7 @@ function CreateComponent() {
       imageUrls
     }
     const result = createCar(newData)
+    navigate('/catalog')
     console.log(result);
   }
 
