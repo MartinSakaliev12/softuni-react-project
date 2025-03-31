@@ -22,7 +22,7 @@ async function request(method, url, data, options ={}){
         return response;
     }
     const result = response.json();
-    console.log(response);
+    console.log(result);
 
     return result;
 }
