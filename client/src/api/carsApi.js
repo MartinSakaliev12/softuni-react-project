@@ -42,12 +42,14 @@ export function useGetAll(){
 
 export function useGetOne(carId){
     const [car, setCar] = useState({});
-    const [selectedImage, setSelectedImage] = useState("");
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [imageUrls, setImageUrls] = useState([]);
     useEffect(()=>{
         request.get(`${baseUrl}/${carId}`)
             .then(res=>{
                 setCar(res)
                 setSelectedImage(res.imageUrls[0]);
+                setImageUrls(res.imageUrls);
             })
             .catch(err=>{
                 console.error(err);
@@ -59,5 +61,44 @@ export function useGetOne(carId){
         setCar,
         selectedImage,
         setSelectedImage,
+        imageUrls,
+        setImageUrls,
     }
 }
+
+export function useEdit(){
+    const {accessToken} = useContext(UserContext)
+    const options = {
+        headers: {
+            
+            'X-Authorization': accessToken
+        },
+    }
+    const editCar =async(carId, data)=>{
+        const response = await request.put(`${baseUrl}/${carId}`, data, options)
+        return response;
+    }
+    return {
+        editCar,
+    }
+}
+
+export function useDelete(carId){
+    const {accessToken} = useContext(UserContext)
+    const options = {
+        headers: {
+            
+            'X-Authorization': accessToken
+        },
+    }
+    useEffect(()=>{
+        request.delete(`${baseUrl}/${carId}`,null, options)
+            .then(res=>{
+                console.log(res);
+            })
+            .catch(err=>{
+                console.error(err);
+            })
+    })
+}
+

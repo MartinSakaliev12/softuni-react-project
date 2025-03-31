@@ -10,12 +10,16 @@ import { UserContext } from "./context/authContext"
 import Register from "./components/registerComponent"
 import Logout from "./components/logoutComponent"
 import Details from "./components/detailsComponent"
+import Edit from "./components/editComponent"
+import Delete from "./components/deleteComponet"
+import Like from "./components/likeComponent"
 
 function App() {
   const [authData, setauthData] = useState({})
-
+ 
   const loginHandler = (user) => {
     setauthData(user)
+    
   }
 
   const logoutHandler = () => {
@@ -37,6 +41,9 @@ function App() {
       <Route path='/register' element={<Register/>}/>
       <Route path='/logout' element={<Logout/>}/>
       <Route path='/catalog/:carId/details' element={<Details/>}/>
+      <Route path='/catalog/:carId/edit' element={<Edit/>}/>
+      <Route path='/catalog/:carId/delete' element={<Delete/>}/>
+      
     </Routes>
    
     </UserContext.Provider>

@@ -1,15 +1,19 @@
-import { useState } from 'react';
-import { useParams } from 'react-router';
+import { useContext, useState } from 'react';
+import { Link, useParams } from 'react-router';
 import { useGetOne } from '../api/carsApi';
+import { UserContext } from '../context/authContext';
 
 export default function Details() {
-    const { carId } = useParams();
-    const {car, setCar,selectedImage,setSelectedImage} = useGetOne(carId);
-    console.log(car);
-   return(<>
+  const { carId } = useParams();
+  const { car, setCar, selectedImage, setSelectedImage } = useGetOne(carId);
+  const { email, password, accessToken, _id } = useContext(UserContext);
+  const isOwner = _id === car._ownerId;
+  console.log(_id);
+  console.log(car);
+  return (<>
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-xl mt-10">
       <h1 className="text-3xl font-bold mb-4">{car.brand}</h1>
-      
+
       <div className="flex gap-4">
         <div className="w-3/4">
           <img src={selectedImage} alt={car.brand} className="w-full h-96 object-cover rounded-lg" />
@@ -35,11 +39,37 @@ export default function Details() {
         <p className="text-gray-700"><strong>Power:</strong> {car.power}</p>
         <p className="text-gray-700 mt-4">{car.description}</p>
       </div>
-      
-      <button className="w-full bg-blue-600 text-white py-3 rounded-lg mt-4 hover:bg-blue-700">
-        Buy Now
-      </button>
+      {email ?
+        <div className="flex justify-center space-x-4 w-full max-w-md mx-auto">
+          {isOwner ?
+            <>
+              <Link
+                to={`/catalog/${car._id}/edit`}
+                className="w-1/3 bg-blue-600 text-white py-3 rounded-lg mt-4 hover:bg-blue-700 text-center"
+              >
+                Edit
+              </Link>
+              <Link
+                to={`/catalog/${car._id}/delete`}
+                className="w-1/3 bg-blue-600 text-white py-3 rounded-lg mt-4 hover:bg-blue-700 text-center"
+              >
+                Delete
+              </Link>
+            </>
+            : <Link
+              to={`/catalog/${car._id}/like`}
+              className="w-1/3 bg-blue-600 text-white py-3 rounded-lg mt-4 hover:bg-blue-700 text-center"
+            >
+              Like
+            </Link>
+
+
+          }
+        </div>
+        : <></>}
+
+
     </div>
-   </>)
-   
+  </>)
+
 }
