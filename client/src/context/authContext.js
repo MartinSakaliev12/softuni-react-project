@@ -6,6 +6,8 @@ export const UserContext = createContext({
     email:"",
     password:"",
     accessToken:"",
+    liked:[],
+    setLiked: ()=>null,
     loginHandler: ()=>null,
     logoutHandler: ()=>null,
 });
