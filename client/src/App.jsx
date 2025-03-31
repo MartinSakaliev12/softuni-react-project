@@ -16,7 +16,9 @@ import Like from "./components/likeComponent"
 
 function App() {
   const [authData, setauthData] = useState({})
+
   const [liked, setLiked] = useState([])
+
   const loginHandler = (user) => {
     setauthData(user)
     
@@ -44,7 +46,7 @@ function App() {
       <Route path='/catalog/:carId/edit' element={<Edit/>}/>
       <Route path='/catalog/:carId/delete' element={<Delete/>}/>
       <Route path='/catalog/:carId/like' element={<Like/>}/>
-      
+ 
     </Routes>
    
     </UserContext.Provider>

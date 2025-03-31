@@ -29,6 +29,7 @@ export default function Register() {
         
         const authData = await register({ email: registerData.email, password: registerData.password})
 
+
         if(authData.code >= 400) {
             setPrevEmail(registerData.email)
             setError(authData.message)

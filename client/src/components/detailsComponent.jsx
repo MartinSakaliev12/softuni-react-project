@@ -6,11 +6,13 @@ import { UserContext } from '../context/authContext';
 export default function Details() {
   const { carId } = useParams();
   const { car, setCar, selectedImage, setSelectedImage } = useGetOne(carId);
+
   const { email, password, accessToken, _id ,liked} = useContext(UserContext);
   
   const isOwner = _id === car._ownerId;
   const isLiked = liked?.includes(carId)
   console.log(isLiked)
+
   return (<>
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-xl mt-10">
       <h1 className="text-3xl font-bold mb-4">{car.brand}</h1>
@@ -57,6 +59,7 @@ export default function Details() {
                 Delete
               </Link>
             </>
+
             : <>
             {
               !isLiked?
@@ -78,6 +81,7 @@ export default function Details() {
               }
             </>
             
+
 
 
           }
