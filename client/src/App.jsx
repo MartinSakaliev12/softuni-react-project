@@ -26,6 +26,7 @@ function App() {
 
   const logoutHandler = () => {
     setauthData({})
+    setLiked([])
   }
 
   return (
