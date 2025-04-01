@@ -1,11 +1,15 @@
 import { useContext, useEffect } from "react"
+import {Link} from "react-router"
 
 import { UserContext } from "../context/authContext"
-import { useGetOne } from "../api/carsApi"
+import { useGetAllCreatedByUser, useGetOne } from "../api/carsApi"
+import "./css/homePage.css"
 
 export default function Profile(){
     
     const {liked,email}= useContext(UserContext)
+    const {allUserCars} = useGetAllCreatedByUser()
+
     if(!email){
         return
     }
@@ -16,42 +20,54 @@ export default function Profile(){
         result.push(car)
     }
     
-    
+    console.log(result)
+    const empty =[]
+    console.log(allUserCars)
     return(
         <>
             
             <section className="container">
                 
                 <h3>Харесани</h3>
-                {result?.map((res,index) => <div className="grid"
+                <div className="grid"
+                   >
+                {result.length > 0?
+                    
+                    result?.map((res,index) =>    
+                    <Link className="card"
+                    to={`/catalog/${res?._id}/details`}
                     key ={index}>
-                    <div className="card">
-                        <img src={res?.imageUrls[0]} alt="Car" />
+                        <img src={!!res.imageUrls? res.imageUrls[0]:null} alt="Car" />
                         <h4>{res?.brand} {res?.model}</h4>
                         <p>Цена: {res?.price}€</p>
-                    </div>
-                    
-                </div>)}
+                    </Link>)
+                        
+                    :<>
+                    <h3>No content</h3>
+                    </>
+                }
+                
+                </div>
                 
             </section>
             <section className="container">
-                <h3>Мои обяви</h3>
+                <h3>Моите обяви</h3>
                 <div className="grid">
-                    <div className="card">
-                        <img src="https://g1-bg.cars.bg/2025-03-09_2/67cddf656a696dcacb09c004o.jpg" alt="Car" />
-                        <h4>BMW X5</h4>
-                        <p>Цена: 40,000€</p>
-                    </div>
-                    <div className="card">
-                        <img src="https://g1-bg.cars.bg/2025-03-09_2/67cddf656a696dcacb09c004o.jpg" alt="Car" />
-                        <h4>Audi A6</h4>
-                        <p>Цена: 35,000€</p>
-                    </div>
-                    <div className="card">
-                        <img src="https://g1-bg.cars.bg/2025-03-09_2/67cddf656a696dcacb09c004o.jpg" alt="Car" />
-                        <h4>Mercedes C-className</h4>
-                        <p>Цена: 38,000€</p>
-                    </div>
+                    {
+                        allUserCars && allUserCars.length >0? 
+                        allUserCars.map((res,index)=>
+                        <Link className="card"
+                            to={`/catalog/${res._id}/details`}
+                            key={index}
+                            >
+                        <img src={res.imageUrls[0]} alt="Car" />
+                        <h4>{res.brand} {res.model}</h4>
+                        <p>Цена: {res.price}€</p>
+                        </Link>)
+                        :<><h3>No content</h3></>
+                    }
+                    
+                    
                 </div>
             </section>
         </>

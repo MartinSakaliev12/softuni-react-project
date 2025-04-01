@@ -102,4 +102,21 @@ export function useDelete(carId){
     })
 }
 
+export function useGetAllCreatedByUser(){
+    const [allUserCars, setAllUserCars] = useState(null)
+    const {_id} = useContext(UserContext)
+
+    useEffect(()=>{
+        const searchParams = new URLSearchParams({
+            where: `_ownerId="${_id}"`
+        })
+        request.get(`${baseUrl}?${searchParams.toString()}`)
+            .then(setAllUserCars)
+
+    },[])
+    return {
+        allUserCars,
+    }
+}
+
 
