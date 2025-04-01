@@ -2,12 +2,22 @@ import { useGetAll } from "../api/carsApi"
 import "./css/catalog.css"
 import SearchComponent from "./searchComponent"
 import { Link } from "react-router"
-import "./css/catalog.css"
+import { useActionState } from "react"
 
 export default function Catalog(){
   const {cars,setCars} = useGetAll()
-    console.log(cars);
-    return(<>
+  
+  const searchSubmitHandler = (priviousData, formData) =>{
+    const brand = formData.get("brand")
+    const model = formData.get("model")
+    setCars(cars.filter(car => 
+      car.brand.toLowerCase().includes(brand) || 
+      car.model.toLowerCase().includes(model)
+    ))
+  }
+  const [values,seacrchAction, isPending] = useActionState(searchSubmitHandler,{})
+
+  return(<>
         {/* Търсачка */}
         <>
   <meta charSet="UTF-8" />
@@ -16,14 +26,14 @@ export default function Catalog(){
   <link rel="stylesheet" href="styles.css" />
   <section className="search-section">
     <h2>Търсене на автомобили</h2>
-    <form id="filterForm" >
+    <form id="filterForm" action={seacrchAction}>
       <div className="search-grid">
       <div>
           <label htmlFor="year">Марка:</label>
           <input
             type="text"
             id="brand"
-            name="year"
+            name="brand"
             className="input"
             placeholder="Напр. Mercedes"
           />
@@ -32,8 +42,8 @@ export default function Catalog(){
           <label htmlFor="year">Модел:</label>
           <input
             type="text"
-            id="year"
-            name="year"
+            id="model"
+            name="model"
             className="input"
             placeholder="Напр. s500"
           />
@@ -54,8 +64,9 @@ export default function Catalog(){
         <div className="car-card">
         <img src={car.imageUrls[0]} alt="Toyota Corolla" />
           <div className="info">
-          <h3>{car.brand}</h3>
-          <p>{car.year} - {car.fuel}</p>
+          <h3 className="brand">{car.brand}</h3>
+          <p>{car.model} - {car.year}</p>
+          <p>{car.fuel}</p>
           <p className="price">${car.price}</p>
           <p>{car.mileage}km</p>
           <p>{car.description}</p>

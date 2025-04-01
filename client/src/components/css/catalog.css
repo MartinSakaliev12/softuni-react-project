@@ -95,12 +95,13 @@ body {
 
 .car-card .info {
     padding: 16px;
+    
 }
 
-.car-card h3 {
-    font-size: 20px;
-    font-weight: bold;
-    color:white;
+.brand {
+    /* font-size: 20px;
+    font-weight: bold; */
+    color:rgb(246, 240, 240);
 }
 
 .car-card p {
@@ -115,4 +116,5 @@ body {
     font-size: 22px;
     margin-top: 10px;
 }
+
 
