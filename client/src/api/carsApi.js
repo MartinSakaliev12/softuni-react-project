@@ -119,4 +119,21 @@ export function useGetAllCreatedByUser(){
     }
 }
 
+export function useGetLatest(){
+    const [latestCar,setLatestCar] = useState()
+
+    useEffect(()=>{
+        // const searchParams = new URLSearchParams({
+        //     sortBy: '_createdOn desc',
+        //     pageSize: 2
+        // })
+        request.get(`http://localhost:3030/data/cars?sortBy=_createdOn%20desc&pageSize=3`)
+            .then(setLatestCar)
+    },[])
+
+    return{
+        latestCar
+    }
+}
+
 

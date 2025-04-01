@@ -21,7 +21,7 @@ export default function Profile(){
     }
     
     console.log(result)
-    const empty =[]
+    
     console.log(allUserCars)
     return(
         <>

@@ -1,7 +1,11 @@
 import { Link } from "react-router";
 import "./css/homePage.css"
+import { useGetLatest } from "../api/carsApi";
 
 export default function HomePage() {
+    const { latestCar } = useGetLatest()
+
+
     return (<>
         <>
             <section className="header">
@@ -10,25 +14,27 @@ export default function HomePage() {
                 <br />
                 <Link to="/catalog">Разгледай сега</Link>
             </section>
-
+            <br />
+            <h3>Най-нови обяви</h3>
             <section className="container">
-                <h3>Популярни автомобили</h3>
                 <div className="grid">
-                    <div className="card">
-                        <img src="https://g1-bg.cars.bg/2025-03-09_2/67cddf656a696dcacb09c004o.jpg" alt="Car" />
-                        <h4>BMW X5</h4>
-                        <p>Цена: 40,000€</p>
-                    </div>
-                    <div className="card">
-                        <img src="https://g1-bg.cars.bg/2025-03-09_2/67cddf656a696dcacb09c004o.jpg" alt="Car" />
-                        <h4>Audi A6</h4>
-                        <p>Цена: 35,000€</p>
-                    </div>
-                    <div className="card">
-                        <img src="https://g1-bg.cars.bg/2025-03-09_2/67cddf656a696dcacb09c004o.jpg" alt="Car" />
-                        <h4>Mercedes C-className</h4>
-                        <p>Цена: 38,000€</p>
-                    </div>
+                    {
+                        latestCar ?
+                            latestCar.length > 0 ?
+                                latestCar.map((res, index) =>
+                                    <Link 
+                                        className="card"
+                                        to={`/catalog/${res._id}/details`}
+                                    >
+                                        <img src={!!res.imageUrls ? res.imageUrls[0] : null} alt="Car" />
+                                        <h4>{res?.brand} {res?.model}</h4>
+                                        <p>Цена: {res?.price}€</p>
+                                    </Link>
+                                )
+                                : <><h3>No content</h3></>
+                            : <><h3>No content</h3></>
+                    }
+
                 </div>
             </section>
 
