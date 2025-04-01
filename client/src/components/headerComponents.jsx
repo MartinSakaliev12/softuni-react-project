@@ -25,7 +25,7 @@ export default function Header(){
         <Link to="/logout">Logout</Link>
       </li>
       <li>
-        <label >{email}</label>
+        <Link to="/profile">{email}</Link>
       </li>
       </>
       :<>

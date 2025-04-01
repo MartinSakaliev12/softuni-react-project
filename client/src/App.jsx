@@ -13,6 +13,7 @@ import Details from "./components/detailsComponent"
 import Edit from "./components/editComponent"
 import Delete from "./components/deleteComponet"
 import Like from "./components/likeComponent"
+import Profile from "./components/profileComponent"
 
 function App() {
   const [authData, setauthData] = useState({})
@@ -47,6 +48,7 @@ function App() {
       <Route path='/catalog/:carId/edit' element={<Edit/>}/>
       <Route path='/catalog/:carId/delete' element={<Delete/>}/>
       <Route path='/catalog/:carId/like' element={<Like/>}/>
+      <Route path='/profile' element={<Profile/>}/>
  
     </Routes>
    
