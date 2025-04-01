@@ -15,10 +15,10 @@ body {
 
 /* Секция за търсене */
 .search-section {
-    background: white;
+    background: rgb(248, 239, 239);
     padding: 32px;
     margin-top: 16px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(203, 201, 201, 0.1);
     border-radius: 12px;
 }
 
@@ -38,7 +38,7 @@ body {
 .search-grid select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #100c0c;
     border-radius: 6px;
     font-size: 16px;
 }
@@ -60,11 +60,15 @@ body {
 }
 
 /* Карти за автомобили */
+
 .cars-grid {
-    display: flex;
-    
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 29px;
+    display: grid;
+    width: 90%;
+    max-width: 4800px;
+    gap: 10px;
+    margin: auto;
+    padding: 1px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Creates responsive grid columns */
     margin-top: 40px;
 }
 
@@ -111,3 +115,4 @@ body {
     font-size: 22px;
     margin-top: 10px;
 }
+

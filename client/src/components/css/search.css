@@ -72,10 +72,11 @@ body {
   
   /* Търсачка */
   .search-section {
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.146);
+   
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
     width: 2000%;
     max-width: 800px;
     margin: 40px auto;
@@ -85,6 +86,7 @@ body {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 20px;
+    color:white
   }
   .search-grid {
     display: grid;
@@ -96,6 +98,9 @@ body {
     .search-grid {
       grid-template-columns: 1fr;
     }
+  }
+  .search-grid label{
+    color:white;
   }
   .search-section label {
     font-weight: bold;
@@ -134,7 +139,7 @@ body {
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
-    color: #333;
+    color: #d2c9c9;
   }
   
   .grid {
@@ -166,9 +171,10 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
     margin-top: 10px;
+    color:white
   }
   .card p {
-    color: #555;
+    color: #dfd2d2;
   }
   .input {
     width: 100%;

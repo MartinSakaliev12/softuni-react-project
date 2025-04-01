@@ -3,7 +3,7 @@ import {Link} from "react-router"
 
 import { UserContext } from "../context/authContext"
 import { useGetAllCreatedByUser, useGetOne } from "../api/carsApi"
-import "./css/homePage.css"
+import "./css/catalog.css"
 
 export default function Profile(){
     

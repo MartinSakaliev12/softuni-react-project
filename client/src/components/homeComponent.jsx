@@ -25,6 +25,7 @@ export default function HomePage() {
                                     <Link 
                                         className="card"
                                         to={`/catalog/${res._id}/details`}
+                                        key={index}
                                     >
                                         <img src={!!res.imageUrls ? res.imageUrls[0] : null} alt="Car" />
                                         <h4>{res?.brand} {res?.model}</h4>

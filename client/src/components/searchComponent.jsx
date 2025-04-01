@@ -14,21 +14,27 @@ export default function SearchComponent(){
     <h2>Търсене на автомобили</h2>
     <form id="filterForm" action={searcgAction}>
       <div className="search-grid">
-        <div>
-          <label htmlFor="brand">Марка:</label>
-          <select id="brand" name="brand">
-            <option value="all">Всички</option>
-            <option value="Toyota">Toyota</option>
-            <option value="BMW">BMW</option>
-            <option value="Mercedes">Mercedes</option>
-            <option value="Audi">Audi</option>
-          </select>
+      <div>
+          <label htmlFor="year">Марка:</label>
+          <input
+            type="text"
+            id="brand"
+            name="year"
+            className="input"
+            min={1980}
+            max={2025}
+            placeholder="Напр. Mercedes"
+          />
         </div>
         <div>
-          <label htmlFor="model">Модел:</label>
-          <select id="model" name="model">
-            <option value="all">Всички</option>
-          </select>
+          <label htmlFor="year">Модел:</label>
+          <input
+            type="text"
+            id="year"
+            name="year"
+            className="input"
+            placeholder="Напр. s500"
+          />
         </div>
         <div>
           <label htmlFor="year">Година:</label>

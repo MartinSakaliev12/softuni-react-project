@@ -2,6 +2,7 @@ import { useGetAll } from "../api/carsApi"
 import "./css/catalog.css"
 import SearchComponent from "./searchComponent"
 import { Link } from "react-router"
+import "./css/catalog.css"
 
 export default function Catalog(){
   const {cars,setCars} = useGetAll()
@@ -13,10 +14,40 @@ export default function Catalog(){
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Търсене на автомобили</title>
   <link rel="stylesheet" href="styles.css" />
+  <section className="search-section">
+    <h2>Търсене на автомобили</h2>
+    <form id="filterForm" >
+      <div className="search-grid">
+      <div>
+          <label htmlFor="year">Марка:</label>
+          <input
+            type="text"
+            id="brand"
+            name="year"
+            className="input"
+            placeholder="Напр. Mercedes"
+          />
+        </div>
+        <div>
+          <label htmlFor="year">Модел:</label>
+          <input
+            type="text"
+            id="year"
+            name="year"
+            className="input"
+            placeholder="Напр. s500"
+          />
+        </div>
+        
+      </div>
+      <button type="submit" className="search-button">
+        Търси
+      </button>
+    </form>
+  </section>
     <div className="container">
-    {/* <SearchComponent/> */}
     <section className="cars-grid">
-      {cars.code == 404 ?
+      {cars.length==0?
       <p>No content</p>
       :cars.map(car=>( 
         <Link to={`/catalog/${car["_id"]}/details`} key={car._id}>
