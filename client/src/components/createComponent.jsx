@@ -6,6 +6,8 @@ function CreateComponent() {
   const [imageUrl, setImageUrl] = useState([1])
   const {createCar} = useCreate()
   const navigate = useNavigate();
+  const [error, setError] = useState(false)
+  const [defaultValues, setDefaultValues] = useState(null)
 
   const addImageUrl = () => {
     setImageUrl((prev) => [...prev, prev.length + 1])
@@ -13,12 +15,23 @@ function CreateComponent() {
 
   const createSubmitHandler = (prevData, formData) => {
     const data = Object.fromEntries(formData)
+    const values =Object.values(data)
+    console.log(values)
+    
+   
+
     const imageUrls =[];
     imageUrl.map((url) => {
       const currnet = formData.get(`imageUrl ${url}`)
       imageUrls.push(currnet)
     })
-    const brand = formData.get("brand")
+
+    if(error){
+      console.log(error)
+      return
+    }
+
+      const brand = formData.get("brand")
     const model = formData.get("model")
     const year = formData.get("year")
     const power = formData.get("power")
@@ -37,18 +50,35 @@ function CreateComponent() {
       description,
       imageUrls
     }
+
+    for(let current of values){
+      console.log(current)
+      if(current == ""){
+        
+        setError(true)
+        setDefaultValues({...newData})
+        return;
+      }
+    }
     const result = createCar(newData)
     navigate('/catalog')
-    console.log(result);
+    //console.log(result);
+    
+    
   }
 
   const [values, createActionm, isPending] = useActionState(createSubmitHandler, {})
+  
   return (<>
     {/* Форма за създаване на обява */}
     <section className="bg-grey-800 p-8 mt-8 mx-auto max-w-4xl shadow-lg shadow-black rounded-xl">
       <h2 className="text-3xl text-white font-semibold text-center mb-6">
         Създай нова обява
       </h2>
+      {error?
+        <h4 className="text-red-600 font-semibold">Empty fiedls</h4>
+        :<></>
+      }
       <form action={createActionm}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
@@ -56,24 +86,29 @@ function CreateComponent() {
             placeholder="Марка"
             className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
             name="brand"
+            value={defaultValues?defaultValues.brand:""}
+            
           />
           <input
             type="text"
             placeholder="Модел"
             className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
             name="model"
+            value={defaultValues?defaultValues.model:""}
           />
           <input
             type="number"
             placeholder="Година"
             className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
             name="year"
+            value={defaultValues?defaultValues.year:""}
           />
           <input
             type="text"
             placeholder="Мощност"
             className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
             name="power"
+            value={defaultValues?defaultValues.power:""}
           />
           <select className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500" name="fuel">
             <option value="">Гориво</option>

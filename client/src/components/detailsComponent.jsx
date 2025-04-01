@@ -35,7 +35,7 @@ export default function Details() {
       </div>
 
       <div className="mt-6 space-y-2">
-        <p className="text-gray-700"><strong>Price:</strong> {car.price}</p>
+        <p className="text-gray-700"><strong>Price:</strong> {car.price}лв.</p>
         <p className="text-gray-700"><strong>Year:</strong> {car.year}</p>
         <p className="text-gray-700"><strong>Fuel Type:</strong> {car.fuel}</p>
         <p className="text-gray-700"><strong>Mileage:</strong> {car.mileage}</p>

@@ -99,7 +99,7 @@ export function useDelete(carId){
             .catch(err=>{
                 console.error(err);
             })
-    })
+    },[])
 }
 
 export function useGetAllCreatedByUser(){
