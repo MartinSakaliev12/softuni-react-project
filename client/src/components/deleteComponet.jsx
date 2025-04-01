@@ -7,8 +7,8 @@ export default function Delete(){
     const {carId} = useParams()
     useDelete(carId)
     
-    useEffect(()=>{
+    
         navigate('/catalog')
-    },[])
+    
     return (<></>)
 }

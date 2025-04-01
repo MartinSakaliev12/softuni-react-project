@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/authContext";
 import request from "../service/request";
+import { useNavigate } from "react-router";
 
 const baseUrl = 'http://localhost:3030/data/cars';
 
@@ -28,7 +29,7 @@ export function useGetAll(){
         request.get(baseUrl)
             .then(res=>{
                 setCars(res)
-                console.log(res);
+                
             })
             .catch(err=>{
                 console.error(err);
@@ -84,6 +85,7 @@ export function useEdit(){
 }
 
 export function useDelete(carId){
+    const navigate = useNavigate()
     const {accessToken} = useContext(UserContext)
     const options = {
         headers: {
@@ -95,6 +97,7 @@ export function useDelete(carId){
         request.delete(`${baseUrl}/${carId}`,null, options)
             .then(res=>{
                 console.log(res);
+                navigate('/catalog')
             })
             .catch(err=>{
                 console.error(err);
