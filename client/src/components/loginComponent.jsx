@@ -2,17 +2,19 @@ import { useActionState, useContext, useState } from "react"
 import useLogin from "../api/authApi"
 import { UserContext } from "../context/authContext"
 import { Link, useNavigate } from "react-router"
+import { useFindUserLikes } from "../api/likesApi"
 
 export default function Login (){
     const {login} = useLogin()
-    const {loginHandler} = useContext(UserContext)
+    const {loginHandler,liked,setLiked} = useContext(UserContext)
     const [prevEmail, setPrevEmail] = useState("")
     const [error, setError] = useState(null)
     const navigate = useNavigate()
+    const {findUserLikes} = useFindUserLikes()
 
     const loginSubmitHandler = async(previousData, formData) =>{
         const loginData = Object.fromEntries(formData)
-        const authData = await login(loginData)
+        const authData = await login({...loginData})
         
         if(authData.code==403){
           setError("Invalid email or password!")
@@ -20,7 +22,12 @@ export default function Login (){
           return;
         }
 
-        loginHandler(authData)
+        
+        const arr = await findUserLikes(authData.email)
+        const data = arr[0]
+        console.log(data)
+        setLiked(data.liked)
+        loginHandler({...authData,userLikedId:data._id})
         navigate("/")
     }
 

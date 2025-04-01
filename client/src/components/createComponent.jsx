@@ -35,7 +35,6 @@ function CreateComponent() {
       price,
       mileage,
       description,
-      likes:[],
       imageUrls
     }
     const result = createCar(newData)

@@ -66,14 +66,14 @@ export default function Details() {
               <Link
               to={`/catalog/${car._id}/like`}
               className="w-1/3 bg-blue-600 text-white py-3 rounded-lg mt-4 hover:bg-blue-700 text-center"
-              disabled="true"
+              
               >
               Like
             </Link>:
             <Link
             to={`/catalog/${car._id}/details`}
             className="w-1/3 bg-gray-400 cursor-not-allowed text-white py-3 rounded-lg mt-4 hover:bg-blue-700 text-center"
-            disabled="true"
+            
             >
               Like
             </Link>

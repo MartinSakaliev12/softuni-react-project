@@ -2,14 +2,15 @@ import { useActionState, useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { useRegister } from "../api/authApi";
 import { UserContext } from "../context/authContext";
+import {useCreateLikesUser} from "../api/likesApi";
 
 export default function Register() {
     const { register } = useRegister()
-    const { loginHandler } = useContext(UserContext)
+    const { loginHandler, setLiked} = useContext(UserContext)
     const [error, setError] = useState(null)
     const [prevEmail, setPrevEmail] = useState("")
     const navigate = useNavigate()
-
+    const {createLikesUser} = useCreateLikesUser()
 
     const registerSubmitHandler = async (prevData, formData) => {
         
@@ -37,7 +38,10 @@ export default function Register() {
 
         }
 
-        loginHandler(authData)
+        const res = await createLikesUser(authData.email,authData.accessToken)
+        setLiked(res.liked)
+        console.log(res._id)
+        loginHandler({...authData,userLikedId:res._id})
         navigate("/")
     }
 
