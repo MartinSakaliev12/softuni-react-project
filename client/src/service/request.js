@@ -15,16 +15,21 @@ async function request(method, url, data, options ={}){
         }
     }
     
-    
-    const response = await fetch(url,options)
-    
-    if(response.status === 204){
-        return response;
-    }
-    const result = response.json();
-    console.log(result);
+    try{
 
-    return result;
+        const response = await fetch(url,options)
+        
+        if(response.status === 204 || response.status > 400){
+            console.log("error")
+            return response;
+        }
+        const result = await response.json();
+        
+        
+        return result;
+    }catch(err){
+        console.log("errr")
+    }
 }
 
 

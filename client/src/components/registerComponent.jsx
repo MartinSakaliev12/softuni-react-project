@@ -19,6 +19,7 @@ export default function Register() {
         const registerData = Object.fromEntries(formData)
 
         if(registerData.email === "" || registerData.password === "" || registerData.rePassword === "") {
+            setPrevEmail(registerData.email)
             setError("Please fill all fields")
             return;
         }

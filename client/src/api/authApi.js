@@ -19,8 +19,13 @@ export default function useLogin(){
 
 export function useRegister(){
     function register(data){
-        const response = request.post(`${baseUrl}/register`, data);
-        return response;
+        try{
+
+            const response = request.post(`${baseUrl}/register`, data);
+            return response;
+        }catch(err){
+            console.log(err)
+        }
     }
 
     return {

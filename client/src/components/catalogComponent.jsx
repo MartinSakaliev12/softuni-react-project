@@ -11,7 +11,7 @@ export default function Catalog(){
     const brand = formData.get("brand")
     const model = formData.get("model")
     setCars(cars.filter(car => 
-      car.brand.toLowerCase().includes(brand) || 
+      car.brand.toLowerCase().includes(brand) && 
       car.model.toLowerCase().includes(model)
     ))
   }
@@ -27,6 +27,7 @@ export default function Catalog(){
   <section className="search-section">
     <h2>Търсене на автомобили</h2>
     <form id="filterForm" action={seacrchAction}>
+      
       <div className="search-grid">
       <div>
           <label htmlFor="year">Марка:</label>
@@ -50,6 +51,7 @@ export default function Catalog(){
         </div>
         
       </div>
+      
       <button type="submit" className="search-button">
         Търси
       </button>
