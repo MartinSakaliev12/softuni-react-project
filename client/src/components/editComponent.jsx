@@ -15,11 +15,13 @@ export default function Edit() {
     const {editCar} = useEdit(carId)
     const navigate = useNavigate()
 
-    // const{_id} = useContext(UserContext)
-    // const isOwner = car.owner==_id
-    // if(!isOwner){
-    //     return<Navigate to="/catalog"/>
-    // }
+    const{_id} = useContext(UserContext)
+    const isOwner = car?._ownerId==_id
+
+    console.log(car)
+   
+    
+    
     const editSubmitHandler = async (prevData, formData) => {
         console.log(Object.fromEntries(formData))
         const submitImageUrls = [];
@@ -51,6 +53,11 @@ export default function Edit() {
         navigate(`/catalog/${carId}/details`);
     }
     const [values, editAction, isPending] = useActionState(editSubmitHandler, {});
+    if(car.brand){
+        if(!isOwner){
+                return<Navigate to="/catalog"/>
+        }
+    }
     return (<>
         <section className="bg-grey-800 p-8 mt-8 mx-auto max-w-4xl shadow-lg shadow-black rounded-xl">
             <h2 className="text-3xl text-white font-semibold text-center mb-6">
