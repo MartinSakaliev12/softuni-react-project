@@ -23,6 +23,11 @@ export default function Register() {
             setError("Please fill all fields")
             return;
         }
+        if(registerData.password.length < 5){
+            setPrevEmail(registerData.email)
+            setError("Password must at least 5 characters")
+            return;
+        }
         if (registerData.password !== registerData.rePassword) {
             setPrevEmail(registerData.email)
             setError("Passwords do not match")
