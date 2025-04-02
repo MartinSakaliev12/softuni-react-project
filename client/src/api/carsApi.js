@@ -156,3 +156,30 @@ export function useGetLatest() {
 }
 
 
+// //------------------------------
+// export function useGetLiked(ids){
+//     const [likedCars,setLikedCars] = useState([])
+//     function createSearchUrl(baseUrl, collection, ids) {
+//         const whereParam = `_id IN (${ids.map(id => `"${id}"`).join(", ")})`;
+//         const encodedWhere = encodeURIComponent(whereParam);
+        
+//         return `${baseUrl}/${collection}?where=${encodedWhere}`;
+//     }
+    
+//     // Пример за употреба:
+//     const baseUrl = "http://localhost:3030/data";
+//     const collection = "cars";
+    
+    
+//     const url = createSearchUrl(baseUrl, collection, ids);
+    
+//     //params.append("where", `_id IN (${ids.map(id => `"${id}"`).join(", ")})`);
+
+//     useEffect(()=>{
+//         request.get(url)
+//          .then(setLikedCars)
+//     },[])
+    
+// }
+
+
