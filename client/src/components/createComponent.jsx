@@ -140,7 +140,7 @@ function CreateComponent() {
                             if (key == defaultValues.fuel) {
                               
                               console.log(true)
-                                return <option value={key} selected="true" key={key}>{value}</option>
+                                return <option value={key} selected key={key}>{value}</option>
                             } else {
                                 return <option value={key} key={key}>{value}</option>
                             }

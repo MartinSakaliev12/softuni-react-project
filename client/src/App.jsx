@@ -17,6 +17,7 @@ import Profile from "./components/profileComponent"
 import usePersistedState from "./api/usePersistedState"
 import { useFindUserLikes } from "./api/likesApi"
 import AuthGuard from "./guards/authGuard.jsx"
+import GuestGuard from "./guards/guestGuard.jsx"
 
 function App() {
   const [authData, setauthData] = usePersistedState({})
@@ -48,8 +49,10 @@ function App() {
 
       <Route index element={<HomePage/>}/>
       <Route path='/catalog' element={<Catalog/>}/>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/register' element={<Register/>}/>
+      <Route element = {<GuestGuard/>}>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
+      </Route>
       <Route element={<AuthGuard/>}>
         <Route path='/logout' element={<Logout/>}/>
         <Route path='/catalog/create' element={<CreateComponent/>}/>
