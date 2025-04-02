@@ -2,12 +2,20 @@ import { useActionState, useState } from "react"
 import { useCreate } from "../api/carsApi"
 import { useNavigate } from "react-router"
 
+const fuels = [
+  
+  { Diesel: "Дизел" },
+  { Petrol: "Бензин" },
+
+]
+
+
 function CreateComponent() {
   const [imageUrl, setImageUrl] = useState([1])
   const {createCar} = useCreate()
   const navigate = useNavigate();
   const [error, setError] = useState(false)
-  const [defaultValues, setDefaultValues] = useState(null)
+  const [defaultValues, setDefaultValues] = useState({})
 
   const addImageUrl = () => {
     setImageUrl((prev) => [...prev, prev.length + 1])
@@ -50,23 +58,28 @@ function CreateComponent() {
       description,
       imageUrls
     }
-
     for(let current of values){
       console.log(current)
       if(current == ""){
         
+        
         setError(true)
-        setDefaultValues({...newData})
+        
         return;
       }
     }
     const result = createCar(newData)
     navigate('/catalog')
-    //console.log(result);
+    
     
     
   }
+  const onChangeHandler = (e) =>{
+    setDefaultValues({...defaultValues,[e.target.name]:e.target.value})
+    console.log(defaultValues)
+  }
 
+  
   const [values, createActionm, isPending] = useActionState(createSubmitHandler, {})
   
   return (<>
@@ -86,7 +99,9 @@ function CreateComponent() {
             placeholder="Марка"
             className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
             name="brand"
-            value={defaultValues?defaultValues.brand:""}
+            value={defaultValues.brand ?? ""}
+            onChange={onChangeHandler}
+            
             
           />
           <input
@@ -94,45 +109,69 @@ function CreateComponent() {
             placeholder="Модел"
             className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
             name="model"
-            value={defaultValues?defaultValues.model:""}
+            value={defaultValues.model??""}
+            onChange={onChangeHandler}
           />
           <input
             type="number"
             placeholder="Година"
             className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
             name="year"
-            value={defaultValues?defaultValues.year:""}
+            value={defaultValues.year??""}
+            onChange={onChangeHandler}
           />
           <input
             type="text"
             placeholder="Мощност"
             className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
             name="power"
-            value={defaultValues?defaultValues.power:""}
+            value={defaultValues.power??""}
+            onChange ={onChangeHandler}
           />
-          <select className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500" name="fuel">
+          <select className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500" name="fuel"
+            
+            onChange={onChangeHandler}
+          >
             <option value="">Гориво</option>
-            <option value="Diesel">Дизел</option>
-            <option value="Petrol">Бензин</option>
+            {fuels.map((fuel) => {
+                            console.log(defaultValues)
+                            const [key, value] = Object.entries(fuel)[0];
+                            
+                            if (key == defaultValues.fuel) {
+                              
+                              console.log(true)
+                                return <option value={key} selected="true" key={key}>{value}</option>
+                            } else {
+                                return <option value={key} key={key}>{value}</option>
+                            }
+                        }
+                        )}
+                
           </select>
           <input
             type="number"
             placeholder="Цена ($)"
             className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
             name="price"
+            value={defaultValues.price??""}
+            onChange={onChangeHandler}
           />
           <input
             type="number"
             placeholder="Пробег (км)"
             className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
             name="mileage"
+            value={defaultValues.mileage??""}
+            onChange={onChangeHandler}
           />
         </div>
         <textarea
           placeholder="Описание"
           className="p-3 border rounded-lg w-full mt-4 h-32 focus:ring-2 focus:ring-blue-500"
-          defaultValue={""}
+          
           name="description"
+          value={defaultValues.description??""}
+          onChange={onChangeHandler}
         />
         {imageUrl.map((url) => <input
           type="text"
@@ -140,6 +179,8 @@ function CreateComponent() {
           className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500"
           name={`imageUrl ${url}`}
           key = {url}
+          value={defaultValues[`imageUrl ${url}`]??""}
+          onChange={onChangeHandler}
         />)}
 
         <button
