@@ -9,13 +9,13 @@ export default function HomePage() {
     return (<>
         <>
             <section className="header">
-                <h2>Намерете мечтания си автомобил!</h2>
-                <p>Разгледайте нашата селекция от качествени автомобили.</p>
+                <h2>Find your dream car!</h2>
+                <p>Do it in our website.</p>
                 <br />
-                <Link to="/catalog">Разгледай сега</Link>
+                <Link to="/catalog">Search</Link>
             </section>
             <br />
-            <h3>Най-нови обяви</h3>
+            <h3>Latest</h3>
             <section className="container">
                 <div className="grid">
                     {
@@ -29,7 +29,7 @@ export default function HomePage() {
                                     >
                                         <img src={!!res.imageUrls ? res.imageUrls[0] : null} alt="Car" />
                                         <h4>{res?.brand} {res?.model}</h4>
-                                        <p>Цена: {res?.price}€</p>
+                                        <p>price: {res?.price}€</p>
                                     </Link>
                                 )
                                 : <><h3>No content</h3></>

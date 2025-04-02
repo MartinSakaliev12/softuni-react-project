@@ -5,8 +5,8 @@ import { UserContext } from "../context/authContext";
 
 const fuels = [
 
-    { Diesel: "Дизел" },
-    { Petrol: "Бензин" },
+    { Diesel: "Diesel" },
+    { Petrol: "Petrol" },
 
 ]
 export default function Edit() {
@@ -61,7 +61,7 @@ export default function Edit() {
     return (<>
         <section className="bg-grey-800 p-8 mt-8 mx-auto max-w-4xl shadow-lg shadow-black rounded-xl">
             <h2 className="text-3xl text-white font-semibold text-center mb-6">
-                Създай нова обява
+                Edit
             </h2>
             <form action={editAction}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -94,7 +94,7 @@ export default function Edit() {
                         defaultValue={car.power}
                     />
                     <select className="p-3 border rounded-lg w-full focus:ring-2 focus:ring-blue-500" name="fuel">
-                        <option value="" >Гориво</option >
+                        <option value="" >fuel</option >
 
                         {fuels.map((fuel) => {
                             const [key, value] = Object.entries(fuel)[0];

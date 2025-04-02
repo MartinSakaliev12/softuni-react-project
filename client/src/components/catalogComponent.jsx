@@ -22,31 +22,31 @@ export default function Catalog(){
         <>
   <meta charSet="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Търсене на автомобили</title>
+  <title>Search cars</title>
   <link rel="stylesheet" href="styles.css" />
   <section className="search-section">
-    <h2>Търсене на автомобили</h2>
+    <h2>Search cars</h2>
     <form id="filterForm" action={seacrchAction}>
       
       <div className="search-grid">
       <div>
-          <label htmlFor="year">Марка:</label>
+          <label htmlFor="year">Brand:</label>
           <input
             type="text"
             id="brand"
             name="brand"
             className="input"
-            placeholder="Напр. Mercedes"
+            placeholder="Mercedes"
           />
         </div>
         <div>
-          <label htmlFor="year">Модел:</label>
+          <label htmlFor="year">Model:</label>
           <input
             type="text"
             id="model"
             name="model"
             className="input"
-            placeholder="Напр. s500"
+            placeholder="s500"
           />
         </div>
         

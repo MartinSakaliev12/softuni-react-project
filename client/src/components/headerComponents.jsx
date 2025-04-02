@@ -14,15 +14,18 @@ export default function Header(){
       <li>
         <Link to="/">Home</Link>
       </li>
+      <li>
+        <Link to="/catalog">Catalog</Link>
+      </li>
       
       
       {email
       ?<>
       <li>
-        <Link to="/catalog/create">Add car</Link>
+        <Link to="/catalog/create">Add</Link>
       </li>
       <li>
-        <Link to="/logout">Logout</Link>
+        <Link to="/logout">Log out</Link>
       </li>
       <li>
         <Link to="/profile">{email}</Link>

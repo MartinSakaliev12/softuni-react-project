@@ -28,7 +28,7 @@ export default function Profile(){
             
             <section className="container">
                 
-                <h3>Харесани</h3>
+                <h3>Liked</h3>
                 <div className="grid"
                    >
                 {result.length > 0?
@@ -39,7 +39,7 @@ export default function Profile(){
                     key ={index}>
                         <img src={!!res.imageUrls? res.imageUrls[0]:null} alt="Car" />
                         <h4>{res?.brand} {res?.model}</h4>
-                        <p>Цена: {res?.price}€</p>
+                        <p>price: {res?.price}€</p>
                     </Link>)
                         
                     :<>
@@ -51,7 +51,7 @@ export default function Profile(){
                 
             </section>
             <section className="container">
-                <h3>Моите обяви</h3>
+                <h3>My</h3>
                 <div className="grid">
                     {
                         allUserCars && allUserCars.length >0? 
@@ -62,7 +62,7 @@ export default function Profile(){
                             >
                         <img src={res.imageUrls[0]} alt="Car" />
                         <h4>{res.brand} {res.model}</h4>
-                        <p>Цена: {res.price}€</p>
+                        <p>price: {res.price}€</p>
                         </Link>)
                         :<><h3>No content</h3></>
                     }

@@ -4,8 +4,8 @@ import { useNavigate } from "react-router"
 
 const fuels = [
   
-  { Diesel: "Дизел" },
-  { Petrol: "Бензин" },
+  { Diesel: "Diesel" },
+  { Petrol: "Petrol" },
 
 ]
 
@@ -86,7 +86,7 @@ function CreateComponent() {
     {/* Форма за създаване на обява */}
     <section className="bg-grey-800 p-8 mt-8 mx-auto max-w-4xl shadow-lg shadow-black rounded-xl">
       <h2 className="text-3xl text-white font-semibold text-center mb-6">
-        Създай нова обява
+       Create
       </h2>
       {error?
         <h4 className="text-red-600 font-semibold">Empty fiedls</h4>
@@ -132,7 +132,7 @@ function CreateComponent() {
             
             onChange={onChangeHandler}
           >
-            <option value="">Гориво</option>
+            <option value="">fuel</option>
             {fuels.map((fuel) => {
                             console.log(defaultValues)
                             const [key, value] = Object.entries(fuel)[0];
