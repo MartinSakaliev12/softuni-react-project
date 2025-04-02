@@ -16,6 +16,7 @@ import Like from "./components/likeComponent"
 import Profile from "./components/profileComponent"
 import usePersistedState from "./api/usePersistedState"
 import { useFindUserLikes } from "./api/likesApi"
+import AuthGuard from "./guards/authGuard.jsx"
 
 function App() {
   const [authData, setauthData] = usePersistedState({})
@@ -47,15 +48,18 @@ function App() {
 
       <Route index element={<HomePage/>}/>
       <Route path='/catalog' element={<Catalog/>}/>
-      <Route path='/catalog/create' element={<CreateComponent/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
-      <Route path='/logout' element={<Logout/>}/>
+      <Route element={<AuthGuard/>}>
+        <Route path='/logout' element={<Logout/>}/>
+        <Route path='/catalog/create' element={<CreateComponent/>}/>
+        <Route path='/catalog/:carId/edit' element={<Edit/>}/>
+        <Route path='/catalog/:carId/delete' element={<Delete/>}/>
+        <Route path='/catalog/:carId/like' element={<Like/>}/>
+        <Route path='/profile' element={<Profile/>}/>
+      
+      </Route>
       <Route path='/catalog/:carId/details' element={<Details/>}/>
-      <Route path='/catalog/:carId/edit' element={<Edit/>}/>
-      <Route path='/catalog/:carId/delete' element={<Delete/>}/>
-      <Route path='/catalog/:carId/like' element={<Like/>}/>
-      <Route path='/profile' element={<Profile/>}/>
  
     </Routes>
    

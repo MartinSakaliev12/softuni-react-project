@@ -1,6 +1,7 @@
-import { useNavigate, useParams } from "react-router";
+import { Navigate, useNavigate, useParams } from "react-router";
 import { useEdit, useGetOne } from "../api/carsApi";
-import { useActionState, useState } from "react";
+import { useActionState, useContext, useState } from "react";
+import { UserContext } from "../context/authContext";
 
 const fuels = [
 
@@ -14,6 +15,11 @@ export default function Edit() {
     const {editCar} = useEdit(carId)
     const navigate = useNavigate()
 
+    // const{_id} = useContext(UserContext)
+    // const isOwner = car.owner==_id
+    // if(!isOwner){
+    //     return<Navigate to="/catalog"/>
+    // }
     const editSubmitHandler = async (prevData, formData) => {
         console.log(Object.fromEntries(formData))
         const submitImageUrls = [];
