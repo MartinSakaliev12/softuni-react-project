@@ -1,19 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/authContext";
 import request from "../service/request";
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 
 const baseUrl = 'http://localhost:3030/data/cars';
 
-export function useCreate (){
-    const {accessToken} = useContext(UserContext)
+export function useCreate() {
+    const { accessToken } = useContext(UserContext)
     const options = {
         headers: {
-            
+
             'X-Authorization': accessToken
         },
     }
-    const createCar =async(data)=>{
+    const createCar = async (data) => {
         const response = await request.post(baseUrl, data, options)
         return response;
     }
@@ -22,42 +22,42 @@ export function useCreate (){
     }
 }
 
-export function useGetAll(){
+export function useGetAll() {
     const [cars, setCars] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         request.get(baseUrl)
-            .then(res=>{
+            .then(res => {
                 setCars(res)
-                
+
             })
-            .catch(err=>{
+            .catch(err => {
                 console.error(err);
             })
-    },[])
+    }, [])
     return {
         cars,
         setCars,
     }
 }
 
-export function useGetOne(carId){
+export function useGetOne(carId) {
     const [car, setCar] = useState({});
     const [selectedImage, setSelectedImage] = useState(null);
     const [imageUrls, setImageUrls] = useState([]);
-    useEffect(()=>{
+    useEffect(() => {
         request.get(`${baseUrl}/${carId}`)
-            .then(res=>{
+            .then(res => {
                 setCar(res)
                 setSelectedImage(res.imageUrls[0]);
                 setImageUrls(res.imageUrls);
             })
-            .catch(err=>{
+            .catch(err => {
                 console.error(err);
             })
     }
-    ,[])
-    return{
+        , [])
+    return {
         car,
         setCar,
         selectedImage,
@@ -67,15 +67,15 @@ export function useGetOne(carId){
     }
 }
 
-export function useEdit(){
-    const {accessToken} = useContext(UserContext)
+export function useEdit() {
+    const { accessToken } = useContext(UserContext)
     const options = {
         headers: {
-            
+
             'X-Authorization': accessToken
         },
     }
-    const editCar =async(carId, data)=>{
+    const editCar = async (carId, data) => {
         const response = await request.put(`${baseUrl}/${carId}`, data, options)
         return response;
     }
@@ -84,57 +84,73 @@ export function useEdit(){
     }
 }
 
-export function useDelete(carId){
+export function useDelete(carId) {
     const navigate = useNavigate()
-    const {accessToken} = useContext(UserContext)
+    const { accessToken,_id} = useContext(UserContext)
     const options = {
         headers: {
-            
+
             'X-Authorization': accessToken
         },
     }
-    useEffect(()=>{
-        request.delete(`${baseUrl}/${carId}`,null, options)
-            .then(res=>{
-                console.log(res);
+    const { car } = useGetOne(carId)
+
+    
+    const isOwner = car?._ownerId == _id
+    
+
+    useEffect(() => {
+        console.log(car)
+        if(!!car.brand){
+            if (!isOwner) {
+                console.log(isOwner)
                 navigate('/catalog')
-            })
-            .catch(err=>{
-                console.error(err);
-            })
-    },[])
+            } else {
+    
+                request.delete(`${baseUrl}/${carId}`, null, options)
+                    .then(res => {
+                        console.log(res);
+                        navigate('/catalog')
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    })
+            }
+        }
+
+    }, [car])
 }
 
-export function useGetAllCreatedByUser(){
+export function useGetAllCreatedByUser() {
     const [allUserCars, setAllUserCars] = useState(null)
-    const {_id} = useContext(UserContext)
+    const { _id } = useContext(UserContext)
 
-    useEffect(()=>{
+    useEffect(() => {
         const searchParams = new URLSearchParams({
             where: `_ownerId="${_id}"`
         })
         request.get(`${baseUrl}?${searchParams.toString()}`)
             .then(setAllUserCars)
 
-    },[])
+    }, [])
     return {
         allUserCars,
     }
 }
 
-export function useGetLatest(){
-    const [latestCar,setLatestCar] = useState()
+export function useGetLatest() {
+    const [latestCar, setLatestCar] = useState()
 
-    useEffect(()=>{
+    useEffect(() => {
         // const searchParams = new URLSearchParams({
         //     sortBy: '_createdOn desc',
         //     pageSize: 2
         // })
         request.get(`http://localhost:3030/data/cars?sortBy=_createdOn%20desc&pageSize=3`)
             .then(setLatestCar)
-    },[])
+    }, [])
 
-    return{
+    return {
         latestCar
     }
 }
