@@ -17,7 +17,7 @@ export default function Like(){
             like(accessToken,userLikedId,{email,liked:[...liked,carId],userLikedId})
                 .then(res => console.log(res))
             
-            navigate('/catalog')
+            navigate(`/catalog/${carId}/details`)
             return
 
         }

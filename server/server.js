@@ -1385,6 +1385,41 @@
                 "_createdOn": 1743413365783,
                 "_id": "fab5c2ad-f34e-45a1-a6f0-f7ff35b830cd"
             }
+        ],
+        likes:[
+            {
+                "email": "peter@abv.bg",
+                "liked": [
+                    "1"
+                ],
+                "userLikedId": "7b466bd4-aa05-4a30-bcbe-592100ae06e6",
+                "_createdOn": 1743589682043,
+                "_ownerId": "7142b1bc-c1ea-404f-a3b7-66c25d4cfb7e",
+                "_updatedOn": 1743589684452,
+                "_id": "7b466bd4-aa05-4a30-bcbe-592100ae06e6"
+            },
+            {
+                "email": "george@abv.bg",
+                "liked": [
+                    "1",
+                    "0"
+                ],
+                "userLikedId": "9fa3bea4-517c-41aa-b8b0-b2f12882f61c",
+                "_createdOn": 1743590970374,
+                "_updatedOn": 1743592190281,
+                "_ownerId": "30c90da7-8ce5-4ab9-bd57-ef7d933e1428",
+                "_id": "9fa3bea4-517c-41aa-b8b0-b2f12882f61c"
+            },
+            {
+                "email": "admin@abv.bg",
+                "liked": [
+                ],
+                "userLikedId": "d49dfbd3-765d-4cb0-8499-da239187b557",
+                "_createdOn": 1743592264031,
+                "_updatedOn": 1743592313204,
+                "_ownerId": "e1b47186-fb81-46e9-a524-3a23487489fc",
+                "_id": "d49dfbd3-765d-4cb0-8499-da239187b557"
+            }
         ]
     };
     var rules$1 = {
